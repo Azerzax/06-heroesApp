@@ -1,1 +1,44 @@
-<p>hero-page works!</p>
+<div *ngIf="hero; else loading" class="grid mt-4 p-4">
+  <mat-card class="col-12 sm:col-6">
+    <mat-card-header>
+
+      <mat-card-title>
+        {{hero.superhero}}
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        {{hero.alter_ego}}
+      </mat-card-subtitle>
+
+    </mat-card-header>
+
+    <img mat-card-image [src]="hero | heroImage" alt="">
+
+  </mat-card>
+
+  <mat-card>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item> {{hero.first_appearance}}</mat-list-item>
+        <mat-list-item> {{hero.characters}}</mat-list-item>
+        <mat-list-item> {{hero.publisher}}</mat-list-item>
+        <mat-list-item> {{hero.alter_ego}}</mat-list-item>
+        <button color="warn" (click)="goBack()" mat-button>Regresar</button>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+
+
+
+
+
+</div>
+
+<ng-template #loading>
+  <mat-grid-list cols="1">
+    <mat-grid-tile>
+      <mat-spinner></mat-spinner>
+    </mat-grid-tile>
+  </mat-grid-list>
+</ng-template>
